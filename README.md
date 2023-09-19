@@ -16,3 +16,24 @@ Each row is horizontally scrollable. Right arrow appears when mouse moves on row
 Left arrow appears if scrolling to the right has occured and if mouse is on row. It disappears when mouse moves out of row and where there isn't any space to scroll to left.
 
 ![Home page](images/home_screen_2.png)
+
+
+## *Register* page
+*Register* page is the page where users can register their accounts.
+
+![Register page](images/register_screen_1.png)
+
+If user doesn't fill out all form inputs or if some are not valid, a disposable pop-up message appears.
+
+![Home page](images/register_screen_2.png)
+
+
+## *Login* page
+*Login* page is the page where registered users can log into their accounts.
+
+![Home page](images/login_screen_1.png)
+
+If user doesn't fill all form inputs or if some of them are incorrect, a disposable pop-up message appears.
+
+![Home page](images/login_screen_2.png)
+
