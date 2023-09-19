@@ -1,26 +1,15 @@
-FROM library/python:3.8-slim-buster
+FROM python:3.11
 
-RUN apt-get update \
-    # dependencies for building Python packages
-    && apt-get install -y build-essential \
-    # psycopg2 dependencies
-    && apt-get install -y libpq-dev \
-    # Translations dependencies
-    && apt-get install -y gettext \
-    && apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info \
-    # cleaning up unused files
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-    && rm -rf /var/lib/apt/lists/*
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY ./requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt \
-    && rm -rf /requirements.txt
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-COPY . /usr/src/app
+COPY . /app
 
-EXPOSE 80
+EXPOSE 8000
 
-CMD ["sh", "./runserver.sh"]
+CMD ["sh", "run"]
