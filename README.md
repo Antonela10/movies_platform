@@ -9,7 +9,10 @@ They can see movie's directors, producers, cast as well as information about the
 ## *Home* page
 *Home* page is the main page and you can access it regardless of user being logged in or not.
 It displayes three rows of movies, Most popular, Latest, and third row are movies by genre that is randomly selected each time.
+
+![Home page](images/home_screen_1.png)
+
 Each row is horizontally scrollable. Right arrow appears when mouse moves on row, and disappears when it gets out of row, as well as when there isn't left any space to scroll further right.
 Left arrow appears if scrolling to the right has occured and if mouse is on row. It disappears when mouse moves out of row and where there isn't any space to scroll to left.
 
-![Home page](images/home_screen_1.png)
+![Home page](images/home_screen_2.png)
