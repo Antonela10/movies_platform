@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_**=7qj&vtd8foryv$^@=ap5p7xg+-6w*43#*#tx+eau6(#j*7
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-#CSRF_TRUSTED_ORIGINS = ["https://*.milkamilicevic.from.hr"]
+CSRF_TRUSTED_ORIGINS = ["https://movies.milkamilicevic.from.hr"]
 
 
 # Application definition
