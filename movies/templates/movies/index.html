@@ -1,0 +1,71 @@
+{% extends "movies/layout.html" %}
+
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'index.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+
+    <script>
+    </script>
+
+    <div class="col d-flex container-fluid justify-content-center">    
+        <div class="wrapper col-lg-12 px-2">
+
+            <!-- Most popular movies row -->
+            <div class="movie-text mx-2 mb-1 mt-2">Most Popular</div>
+            <div class="scrollable-container" style="position: relative; width: 100%;">
+                <div class="movies-display px-1 py-3" style="display: inline-block; white-space: nowrap; overflow: hidden; width: 100%;">
+                    {% for movie in most_popular_movies %}
+                    <div class="image-container px-2 py-1" style="width: 11%;">
+                        <a href="{% url 'movie' movie.id %}" style="text-decoration: none;">
+                            <img src="{{movie.poster_file_name}}" class="movie-poster" style="width: 100%;">
+                        </a>
+                    </div>
+                    {% endfor %}  
+                </div> 
+                <!-- Arrows for scrolling -->
+                <div class="icon-left ps-3 fa-2x" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: white; display: none;"><i id="" class="fa-solid fa-chevron-left"></i></div> 
+                <div class="icon-right pe-1 fa-2x" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: white; display: none;"><i id="" class="fa-solid fa-chevron-right"></i></div>
+            </div>  
+
+            <!-- Latest movies row -->
+            <div class="movie-text mx-2 mb-1 mt-2">Latest</div>
+            <div class="scrollable-container" style="position: relative; width: 100%;">
+                <div class="movies-display px-1 py-3" style="display: inline-block; white-space: nowrap; overflow: hidden; width: 100%;">    
+                    {% for movie in latest_movies %}
+                    <div class="image-container px-2 py-1" style="width: 11%;">
+                        <a href="{% url 'movie' movie.id %}" style="text-decoration: none;">
+                            <img src="{{movie.poster_file_name}}" class="movie-poster" style="width: 100%;">
+                        </a>
+                    </div>
+                    {% endfor %}     
+                </div>  
+                <!-- Arrows for scrolling -->
+                <div class="icon-left ps-3 fa-2x" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: white; display: none;"><i id="" class="fa-solid fa-chevron-left"></i></div>
+                <div class="icon-right pe-1 fa-2x" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: white; display: none;"><i id="" class="fa-solid fa-chevron-right"></i></div>
+            </div> 
+
+            <!-- Random genre movies row -->
+            <div class="movie-text mx-2 mb-1 mt-2">{{random_genre|title}}</div>
+            <div class="scrollable-container" style="position: relative; width: 100%;">
+                <div class="movies-display px-1 py-3" style="display: inline-block; white-space: nowrap; overflow: hidden; width: 100%;">    
+                    {% for movie in random_genre_movies %}
+                    <div class="image-container px-2 py-1" style="width: 11%;">
+                        <a href="{% url 'movie' movie.id %}" style="text-decoration: none;">
+                            <img src="{{movie.poster_file_name}}" class="movie-poster" style="width: 100%;">
+                        </a>
+                    </div>
+                    {% endfor %}     
+                </div>  
+                <!-- Arrows for scrolling -->
+                <div class="icon-left ps-3 fa-2x" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: white; display: none;"><i id="" class="fa-solid fa-chevron-left"></i></div>
+                <div class="icon-right pe-1 fa-2x" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: white; display: none;"><i id="" class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+        </div>  
+    </div>
+    
+{% endblock %}

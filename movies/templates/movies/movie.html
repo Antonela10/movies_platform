@@ -1,0 +1,140 @@
+{% extends "movies/layout.html" %}
+
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'movie.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <script>   
+    </script>
+
+    <div class="movie-body col d-flex container-fluid justify-content-center mt-5 mb-5">
+        <div class="col-lg-12 px-2 d-flex justify-content-center">
+            <div class="col-lg-10 d-flex flex-column justify-content-center">
+
+                <div class="row">
+                    
+                    <!-- Display movie poster -->
+                    <div class="col-lg-4">
+                        <img src="{{ movie.poster_file_name }}" class="">
+                    </div>
+
+                    <!-- Display movie information -->
+                    <div class="col-lg-8">
+                        <div class="movie-title-25 mb-2">{{ movie.original_title }}</div>
+                        <div class="movie-text mb-2">{{ movie.summary }}</div>
+                        {% if movie.trailer_url %}
+                        <div class="mt-2 mb-2"><a class="movie-trailer movie-text"><i class="fa-solid fa-video me-3"></i>Watch the trailer</a></div>
+                        {% endif %}
+                        <div class="mb-1"><span class="movie-text-grey">Genres: </span><span class="movie-text">{{ genre_list|join:', ' }}</span></div>
+                        <div class="mb-1"><span class="movie-text-grey">Duration: </span><span class="movie-text">{{ movie_duration }}</span></div>
+                        <div class="mb-1"><span class="movie-text-grey">IMDb Rating: </span><span class="movie-text">{{ movie.imdb_rating }}</span></div>
+                        
+                        {% if directors %}
+                        <div class="mb-1">
+                            <span class="movie-text-grey">Director: </span>
+                            {% for director in directors %}
+                            <span class="person-info movie-text" data-personid="{{ director.person.id }}">{{ director.name }}</span>{% if not forloop.last %}<span class="movie-text">, </span>{% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+                        {% if producers %}
+                        <div class="mb-1">
+                            <span class="movie-text-grey">Producer: </span>
+                            {% for producer in producers %}
+                            <span class="person-info movie-text" data-personid="{{ producer.person.id }}">{{ producer }}</span>{% if not forloop.last %}<span class="movie-text">, </span>{% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        {% if actors %}
+                        <div>
+                            <span class="movie-text-grey">Cast: </span>
+                            {% for actor in actors %}
+                            <span class="person-info movie-text" data-personid="{{ actor.person.id }}">{{ actor }}</span>{% if not forloop.last %}<span class="movie-text">, </span>{% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+                        <!-- Remove from My List and add to My List buttons -->
+                        {% if user.is_authenticated %}
+                        <form action="{% url 'mylist' %}" method="POST">
+                            {% csrf_token %}
+                            <br>
+                            <input type="hidden" name="movie_id" value="{{ movie.stroer_id }}">
+                            {% if movie.stroer_id in mylist_movies_ids %}
+                            <button type="submit" name="action" value="remove" class="btn px-0" style="background-color: none; color: white; border: none">
+                                <i class="fa-solid fa-heart me-2"></i> Remove from My List
+                            </button>
+                            {% else %}
+                            <button type="submit" name="action" value="add" class="btn px-0" style="background-color: none; color: white; border: none">
+                                <i class="fa-regular fa-heart me-2"></i>Add to My List
+                            </button>
+                            {% endif %}
+                        </form>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+
+    <!-- Pop-up trailer box -->
+    <div class="trailer-pop-up-box pop-up-box container-fluid justify-content-center">
+        <div class="trailer-overlay overlay row d-flex"></div>
+        <div class="pop-up-body col-lg-8">
+            <div class="pop-up-inner-body d-flex flex-column justify-content-center py-4 px-4">  
+                <div class="d-flex justify-content-center">
+                    <video width="100%" height="" controls>
+                        <source src="{{ movie.trailer_url }}">
+                    </video>
+                </div>
+                <div class="d-flex mt-3">
+                    <div class="movie-text me-4">{{ movie.original_title }}</div>
+                    <div class="movie-text-grey">{{ movie_duration }}</div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+
+    <!-- Pop-up person box -->
+    <div class="person-pop-up-box pop-up-box container-fluid justify-content-center">
+        <div class="person-overlay overlay row d-flex"></div>
+        <div class="pop-up-body col-lg-7">
+            <div class="pop-up-inner-body d-flex flex-column justify-content-center py-4 px-4">  
+                <div class="row">
+                    <div class="col-lg-3 d-flex justify-content-center">
+                        <img class="person-image" src="">
+                    </div>
+                    <div class="col-lg-9 ps-3">
+                        <div class="person-name movie-title-20"></div>
+                        <div class="movie-text">
+                            <span class="movie-text-grey">Born: </span>
+                            <span class="movie-text"></span>
+                        </div>
+                        <div class="movie-text">
+                            <span class="movie-text-grey">Died: </span>
+                            <span class="movie-text"></span>
+                        </div>
+                        <div class="movie-text">
+                            <span class="movie-text-grey">Roles: </span>
+                            <span class="person-role movie-text"></span>
+                        </div>
+                        <div class="">
+                            <span class="movie-text-grey">Movies: </span>
+                            <span class="person-movies movie-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    
+{% endblock %}

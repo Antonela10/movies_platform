@@ -1,0 +1,61 @@
+{% extends "movies/layout.html" %}
+
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'mylist_search.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <script>
+
+    </script>
+    
+    <div class="col d-flex container-fluid justify-content-center mt-5">
+        <div class="col-lg-10 px-2">
+            {% for movie in my_movies_list %}
+            <div class="row mb-5">
+                
+                <!-- Display movie poster -->
+                <div class="col-lg-2">
+                    <a href="{% url 'movie' movie.movies_list.id %}">
+                        <img src="{{ movie.movies_list.poster_file_name }}" style="width: 100%;">
+                    </a>
+                </div>
+                <!-- Display movie information -->
+                <div class="col-lg-10 ps-5">
+                    <div class="movie-title-20">{{ movie.movies_list.original_title }}</div>
+                    <div class="movie-summary movie-text mt-2">{{ movie.movies_list.summary }}</div>
+                    <div class="movie-duration mt-2">
+                        <div class="movie-duration-hidden movie-text" style="visibility: hidden; height: 0px;">{{ movie.movies_list.duration }}</div>
+                        <span class="movie-text-grey">Duration: </span>
+                        <span class="movie-duration-shown movie-text"></span>
+                    </div>    
+                    <div class="mt-2">
+                        <span class="movie-text-grey">IMDb Rating: </span>
+                        <span class="movie-text">{{ movie.movies_list.imdb_rating }}</span>
+                    </div>
+
+                    <!-- Remove from My List button -->
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'mylist' %}" method="POST">
+                            {% csrf_token %}
+                            <br>
+                            <input type="hidden" name="movie_id" value="{{ movie.movies_list.stroer_id }}">
+                            
+                            <button type="submit" name="action" value="remove" class="btn px-0" style="background-color: none; color: white; border: none">
+                                <i class="fa-solid fa-heart me-2"></i> Remove from My List
+                            </button>     
+                        </form>
+                    {% endif %}
+
+                </div>  
+            </div>
+            {% empty %}
+            <div class="movie-title-20">{{ message }}</div>
+            {% endfor %}
+        </div>  
+    </div>
+    
+
+{% endblock %}

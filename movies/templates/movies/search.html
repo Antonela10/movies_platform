@@ -1,0 +1,47 @@
+{% extends "movies/layout.html" %}
+
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'mylist_search.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <script>  
+    </script>
+
+    <div class="col d-flex container-fluid justify-content-center mt-4">
+        
+        <div class="col-lg-10 px-2">
+            {% for movie in searched_movies %}
+            <div class="row mb-5">
+                
+                <!-- Display movie poster -->
+                <div class="col-lg-2">
+                    <a href="{% url 'movie' movie.id %}">
+                        <img src="{{ movie.poster_file_name }}" style="width: 100%;">
+                    </a>
+                </div>
+
+                <!-- Display movie information -->
+                <div class="col-lg-10 ps-5">
+                    <div class="movie-title-20">{{ movie.original_title }}</div>
+                    <div class="movie-summary movie-text mt-2">{{ movie.summary }}</div>
+                    <div class="movie-duration mt-2">
+                        <div class="movie-duration-hidden movie-text" style="visibility: hidden; height: 0px;">{{ movie.duration }}</div>
+                        <span class="movie-text-grey">Duration: </span>
+                        <span class="movie-duration-shown movie-text"></span>
+                    </div>    
+                    <div class="mt-2">
+                        <span class="movie-text-grey">IMDb Rating: </span>
+                        <span class="movie-text">{{ movie.imdb_rating }}</span>
+                    </div>
+                </div>  
+            </div>
+            {% empty %}
+            <div class="movie-title-25">No Movies Match the Search</div>
+            {% endfor %}
+        </div>  
+    </div>
+    
+{% endblock %}
