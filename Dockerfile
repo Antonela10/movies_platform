@@ -12,4 +12,4 @@ COPY . /app
 
 EXPOSE 8000
 
-CMD ["sh", "run"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
