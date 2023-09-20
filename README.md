@@ -52,9 +52,11 @@ If there are, 45 movies are sent through Paginator to each page.
 ![Genres page](images/genres_screen_3.png)
 
 When user clicks on a particular movie, it is taken to a page of that movie where some additional data is displayed like movie summary (summary is in German bacuse data source is in German), movie genres, movie duration, IMDb rating, director, producers, cast. 
+There is also a button *Add to My List* or *Remove from My List* for adding or removing items from our list. 
 
 If there is one, user can also see the trailer for that movie. When user clicks on *Watch the trailer*, a pop-up box with the trailer appears in the center of the screen.
 
 By clicking on the director's name, producers' names or cast names, a pop-up box with image and some additional information for each pearson appears in the center of the screen.
 
-At the 
+## *My List* page
+*My List* page displays all the movies that user added to his list, if there are any. For each movie there are some additional information like start of the summary, duration and IMDb rating.
