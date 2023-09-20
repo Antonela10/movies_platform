@@ -25,20 +25,36 @@ Left arrow appears if scrolling to the right has occured and if mouse is on row.
 
 If user doesn't fill out all form inputs or if some are not valid, a disposable pop-up message appears.
 
-![Home page](images/register_screen_2.png)
+![Register page](images/register_screen_2.png)
 
 
 ## *Login* page
 *Login* page is the page where registered users can log into their accounts.
 
-![Home page](images/login_screen_1.png)
+![Login page](images/login_screen_1.png)
 
 If user doesn't fill all form inputs or if some of them are incorrect, a disposable pop-up message appears.
 
-![Home page](images/login_screen_2.png)
+![Login page](images/login_screen_2.png)
 
 
 ## *Genres* page
 When user is logged in, one of the available pages is *Genres* page. *Genres* icon in *Navbar* is a drop-down list with all the genres.
 
+![Genres page](images/genres_screen_1.png)
+
 By clicking on one of the genres, we are taken to the page that displays all the movies with that genre.
+
+![Genres page](images/genres_screen_2.png)
+
+If there are, 45 movies are sent through Paginator to each page.
+
+![Genres page](images/genres_screen_3.png)
+
+When user clicks on a particular movie, it is taken to a page of that movie where some additional data is displayed like movie summary (summary is in German bacuse data source is in German), movie genres, movie duration, IMDb rating, director, producers, cast. 
+
+If there is one, user can also see the trailer for that movie. When user clicks on *Watch the trailer*, a pop-up box with the trailer appears in the center of the screen.
+
+By clicking on the director's name, producers' names or cast names, a pop-up box with image and some additional information for each pearson appears in the center of the screen.
+
+At the 
