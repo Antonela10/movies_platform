@@ -43,7 +43,7 @@ class PeopleAdmin(admin.ModelAdmin):
 class MoviesPeopleAdmin(admin.ModelAdmin):
     search_fields = ['name']
 	
-admin.site.register(Movies, MoviesAdmin)
-admin.site.register(People, PeopleAdmin)
-admin.site.register(MoviesPeople, MoviesPeopleAdmin)
-admin.site.register(MoviesList)
+# admin.site.register(Movies, MoviesAdmin)
+# admin.site.register(People, PeopleAdmin)
+# admin.site.register(MoviesPeople, MoviesPeopleAdmin)
+# admin.site.register(MoviesList)
