@@ -64,4 +64,8 @@ By clicking on the director's name, producers' names or cast names, a pop-up box
 ![My List page](images/my_list_screen_1.png)
 
 ## *Search*
-In input box in Navbar, we can search for movies. We get all the movies with that name that are ordered by popularity.
+In input box in Navbar, we can search for movies. We get all the movies with the searched name that are ordered by popularity.
+
+![Search page](images/search_screen_1.png)
+
+![Search page](images/search_screen_2.png)
