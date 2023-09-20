@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="eng">
     <head>
@@ -34,12 +35,13 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                   </li>
 
+                  
                   {% if user.is_authenticated %}
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Genres
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="height: 300px; overflow: scroll; overflow-x: hidden;">
                       {% for genre in unique_genres %}
                       <li><a class="dropdown-item" href="{% url 'genres' genre %}">{{genre|title}}</a></li>
                       {% endfor %}

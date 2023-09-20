@@ -6,6 +6,23 @@ body {
     background-color: rgb(18, 18, 18) !important;
 }
 
+
+.dropdown, .dropdown-toggle, .dropdown-menu {
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown:focus, .dropdown-toggle:focus, .dropdown-menu:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown:active, .dropdown-toggle:active, .dropdown-menu:active {
+    outline: none;
+    box-shadow: none;
+}
+
+
 ::placeholder {
     color: rgb(120, 120, 120) !important;
 }
