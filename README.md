@@ -37,3 +37,8 @@ If user doesn't fill all form inputs or if some of them are incorrect, a disposa
 
 ![Home page](images/login_screen_2.png)
 
+
+## *Genres* page
+When user is logged in, one of the available pages is *Genres* page. *Genres* icon in *Navbar* is a drop-down list with all the genres.
+
+By clicking on one of the genres, we are taken to the page that displays all the movies with that genre.
