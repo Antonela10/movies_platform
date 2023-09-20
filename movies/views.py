@@ -134,17 +134,12 @@ def mylist(request):
 
 
 def search(request):
-    searched_movies = []
     if request.method == "POST":
         searched = request.POST["search"]
         searched_movie = Movies.objects.filter(original_title__icontains=searched)
-        searched_movie = searched_movie.order_by("-popularity").all()
+        searched_movies = searched_movie.order_by("-popularity").all()
 
-        for movie in searched_movie:
-            for word in movie.original_title.split():
-                if (searched.lower() == word.lower()):
-                    searched_movies.append(movie)
-
+        print(searched_movies)
         return render(request, "movies/search.html", {
             "searched": searched,
             "searched_movies": searched_movies,
