@@ -60,3 +60,8 @@ By clicking on the director's name, producers' names or cast names, a pop-up box
 
 ## *My List* page
 *My List* page displays all the movies that user added to his list, if there are any. For each movie there are some additional information like start of the summary, duration and IMDb rating.
+
+![My List page](images/my_list_screen_1.png)
+
+## *Search*
+In input box in Navbar, we can search for movies. We get all the movies with that name that are ordered by popularity.
