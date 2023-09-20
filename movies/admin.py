@@ -25,25 +25,25 @@ class PeopleAdmin(admin.ModelAdmin):
     movies.short_description = mark_safe("<strong>Movie people</strong>")  
     movies.allow_tags = True
 
-    # list_display = ["name", "display_related_movies"]
+    list_display = ["name", "display_related_movies"]
 
-    # def display_related_movies(self, obj):
-    #     # Retrieve all the movies related to the current person
-    #     related_movies = obj.movie_people.all()
+    def display_related_movies(self, obj):
+        # Retrieve all the movies related to the current person
+        related_movies = obj.movie_people.all()
 
-    #     # Create a comma-separated string of movie names
-    #     movie_names = ", ".join([movie.movie.original_title for movie in related_movies])
+        # Create a comma-separated string of movie names
+        movie_names = ", ".join([movie.movie.original_title for movie in related_movies])
 
-    #     return movie_names
+        return movie_names
 
-    # display_related_movies.short_description = 'Related Movies'
+    display_related_movies.short_description = 'Related Movies'
 
    
 
 class MoviesPeopleAdmin(admin.ModelAdmin):
     search_fields = ['name']
 	
-# admin.site.register(Movies, MoviesAdmin)
-# admin.site.register(People, PeopleAdmin)
-# admin.site.register(MoviesPeople, MoviesPeopleAdmin)
-# admin.site.register(MoviesList)
+admin.site.register(Movies, MoviesAdmin)
+admin.site.register(People, PeopleAdmin)
+admin.site.register(MoviesPeople, MoviesPeopleAdmin)
+admin.site.register(MoviesList)
