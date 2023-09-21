@@ -4,7 +4,7 @@
 
 This project was written by using Python, Django, JavaScript, HTML, while Bootstrap and CSS were used for styling.
 It represents a movies site where users can see movies' information, trailers, add movies to their list if they are registered. 
-They can see movie's directors, producers, cast as well as information about them. They can also see movies by their genres as well as search for them.
+They can see movie's directors, producers, cast as well as information about them. They can also see movies by their genres as well as search for the particular movie.
 
 ## *Home* page
 *Home* page is the main page and you can access it regardless of user being logged in or not.
@@ -51,12 +51,20 @@ If there are, 45 movies are sent through Paginator to each page.
 
 ![Genres page](images/genres_screen_3.png)
 
-When user clicks on a particular movie, it is taken to a page of that movie where some additional data is displayed like movie summary (summary is in German bacuse data source is in German), movie genres, movie duration, IMDb rating, director, producers, cast. 
+## *Movie* page
+
+When user clicks on a particular movie, it is taken to a page of that movie where some additional data is displayed, like movie summary (summary is in German bacuse data source is in German), movie genres, movie duration, IMDb rating, director, producers, cast. 
 There is also a button *Add to My List* or *Remove from My List* for adding or removing items from our list. 
+
+![Movie page](images/movie_screen_1.png)
 
 If there is one, user can also see the trailer for that movie. When user clicks on *Watch the trailer*, a pop-up box with the trailer appears in the center of the screen.
 
+![Movie page](images/movie_screen_2.png)
+
 By clicking on the director's name, producers' names or cast names, a pop-up box with image and some additional information for each pearson appears in the center of the screen.
+
+![Movie page](images/movie_screen_3.png)
 
 ## *My List* page
 *My List* page displays all the movies that user added to his list, if there are any. For each movie there are some additional information like start of the summary, duration and IMDb rating.
