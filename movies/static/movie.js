@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         person_image.src = data.person_photo_file_name
                         person_name.textContent = data.name
                         person_movies.textContent = data.person_movies.join(', ')
-                        person_role.textContent = data.person_roles
+                        person_role.textContent = data.person_roles.join(', ')
                     })
                     .catch(function(error) {
                         console.error('Error fetching information:', error);

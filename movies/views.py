@@ -68,7 +68,7 @@ def movie(request, movie_id):
     # Extract directors, producers and actors names
     directors = movie.movie_people.all().filter(role = 'director')
     producers = movie.movie_people.all().filter(role = 'producer')
-    actors = movie.movie_people.all().filter(role = 'actor')
+    actors = movie.movie_people.all().filter(role = 'actor')[:20]
    
     # Collect id's of movies in My List
     mylist_user = request.user.id
