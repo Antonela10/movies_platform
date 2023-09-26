@@ -2,12 +2,12 @@ from typing import Any, Optional
 from django.core.management.base import BaseCommand, CommandError
 import requests
 from movies.models import Movies, People, MoviesPeople
-
+import os
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
         
-        # api_url = "https://kntk.de/kinode/movies"
+        # api_url = os.getenv("URL")
         # s = requests.Session()
         # response = s.get(api_url)
         # api_doc = response.json()
@@ -15,7 +15,7 @@ class Command(BaseCommand):
         movies = Movies.objects.all()
 
         for movie in movies:
-            path =  f"https://kntk.de/kinode/movies/{movie.stroer_id}"
+            path = f"{os.getenv('URL')}/{movie.stroer_id}"
             s = requests.Session()
             res = s.get(path)
             movie_doc = res.json()
@@ -28,7 +28,7 @@ class Command(BaseCommand):
                 print(name)
 
                 people_obj, created = People.objects.update_or_create(
-                    name = name,
+                    name=name,
                 )
 
                 movie_people_obj, created = MoviesPeople.objects.update_or_create(
